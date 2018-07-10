@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app='gotribute.home'>
+
+<head>
+  <base href="/" />
+  <meta charset="utf-8">
+  <title>Go Tribute</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+
+<body>
+   
+    <div class="container" style="width:33%;">
+            <div class="row text-center" style="margin-top:25%;">
+                    <img class="profile-img" style="margin-bottom:4vh;" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120">
+                    <br>
+                    <form class='form-signin', action='/login', method='POST'>
+                        <input type="email" name="username" class="form-control" placeholder="Email" required autofocus></input>
+                        <br>
+                        <input type="password" name="password" class="form-control" placeholder="Password" required></input> 
+                        <br>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign-In</button>
+                    </form>
+                    <br>
+                    <a href="/signup" class="text-center new-account">Create a new account</a>
+            </div>
+            
+    </div>
+    
+</body>
+
+</html>

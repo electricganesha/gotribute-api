@@ -5,21 +5,24 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var expressSession = require('express-session');
 var mongoose = require('mongoose');
 var cors = require('cors');
 var flash = require('connect-flash');
 
+var app = express();
 
 require('./server/passport')(passport);
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
-var app = express();
+var dbConfig = require('./server/db');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+var routes = require('./routes/index')(passport);
+var users = require('./routes/users');
+
+mongoose.connect(dbConfig.url);
 
 app.use(favicon());
 app.use(logger('dev'));
@@ -27,9 +30,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
+app.use('/users', users);
+app.use(expressSession({secret: 'f4Uy0XvKsmIx'}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', routes);
-app.use('/users', users);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
