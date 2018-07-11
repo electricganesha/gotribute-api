@@ -12,6 +12,11 @@ var User = new mongoose.Schema({
         unique:true
     },
     password: String,
+    type: {
+        type: String,
+        enum : ['Donor','Charity','Admin'],
+        default: 'Donor'
+    },
 });
  
 module.exports = mongoose.model('User', User);
