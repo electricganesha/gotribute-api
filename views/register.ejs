@@ -30,13 +30,9 @@
         </div>
     </div>
 
-    <%= message %>
-            <% if (message) { %>
-            <h1 class="text-center error-message">
-                    <%= message %>
-                    bla
-            </h1>
-            <% } %>
+    <% if ( message.length > 0 ) { %>
+        <div class="alert alert-warning fade in"><%= message %></div>
+    <% }  %>
 </body>
 
 </html>

@@ -6,12 +6,10 @@ var bCrypt = require('bcrypt-nodejs');
 module.exports = function (passport) {
     // use static serialize and deserialize of model for passport session support
     passport.serializeUser(function (user, done) {
-        console.log(user);
         done(null, user._id);
     });
 
     passport.deserializeUser(function (id, done) {
-        console.log(id);
         User.findById(id, function (err, user) {
             done(err, user);
         });

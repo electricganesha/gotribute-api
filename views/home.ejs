@@ -12,8 +12,14 @@
 </head>
 
 <body>
-    <div style="position:absolute; left:0; right:0; top:0; bottom:0; margin:auto; width:20%; height:20%;">
+    <div class="text-center" style="position:absolute; left:0; right:0; top:0; bottom:0; margin:auto; width:20%; height:20%;">
         <h1>You have logged-in successfully!</h1>
+        <br>
+        <h2>
+            Welcome home "<%= user.username %>"
+        </h2>
+        <br>
+        <a href="/signout" class="text-center new-account">Log-Out</a>
     </div>
 </body>
 
