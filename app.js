@@ -20,6 +20,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 var routes = require('./routes/index')(passport);
+var apiRoutes = require('./routes/api')(app, passport);
 var users = require('./routes/users');
 
 mongoose.connect(dbConfig.url);
@@ -37,6 +38,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', routes);
+app.use('/api', apiRoutes);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

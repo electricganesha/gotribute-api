@@ -51,7 +51,7 @@ var financialStatementSchema = new mongoose.Schema({
 
 var CauseSchema = new mongoose.Schema({
     charity: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: '{PATH} is required!',
     },
@@ -59,19 +59,20 @@ var CauseSchema = new mongoose.Schema({
         type: String,
         required: '{PATH} is required!',
     },
+    created_at:{ type: Date, default: Date.now },
     pictures: [String],
     supporters: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: '{PATH} is required!',
     }],
     keywords: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Keyword',
         required: '{PATH} is required!',
     }],
     donations: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Donation',
         required: '{PATH} is required!',
     }],

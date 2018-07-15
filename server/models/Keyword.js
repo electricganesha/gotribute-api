@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var keywordSchema = new mongoose.Schema({
-	tag: { type: String, required: true, unique: true },
+	keyword: { type: String, required: true, unique: true },
 });
 
 keywordSchema.pre('save', function(next){
