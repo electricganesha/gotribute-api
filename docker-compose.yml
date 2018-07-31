@@ -1,0 +1,18 @@
+version: '2'
+services:
+    gotribute-api-service:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        ports:
+            - 3000:3000
+        links:
+          - mongodb
+    mongodb:
+        image: mongo
+        expose:
+            - 27017
+    mongo_seed:
+      build: ./mongo-seed
+      links:
+        - mongodb
